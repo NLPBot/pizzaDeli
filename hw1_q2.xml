@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <vxml version = "2.1">
 <meta name="maintainer" content="erniecyc@gmail.com" />
+
 <form id="City">
 		<block>
-			<prompt bargein="false"> This is the Hello World Main Menu. </prompt>
+			<prompt bargein="false"> Hi, my name is Gina </prompt>
 		</block>
+
   <field name="City">
    <prompt>
-     Hi, how are you today? Which city are you located?
+     how are you today? Which city are you located?
    </prompt>
   <!-- Define the grammar. -->
   <grammar xml:lang="en-us" root = "myrule">
@@ -29,6 +31,7 @@
     <reprompt/>
    </nomatch>
   </field>
+
   <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
   <filled namelist="City">
   <if cond="City == 'Seattle'"> 
@@ -47,5 +50,54 @@
    </prompt>
   </if> 
 </filled>
+
 </form>
+
+<form id="State">
+		<block>
+			<prompt bargein="false"> We will also need to know which state you live in.  </prompt>
+		</block>
+  <field name="State">
+   <prompt>
+     Which state do you live in?
+   </prompt>
+  <!-- Define the grammar. -->
+  <grammar xml:lang="en-us" root = "myrule">
+   <rule id="myrule">
+   <one-of>
+    <item> Washington </item>
+    <item> California </item>
+    </one-of>
+   </rule>
+   </grammar>
+   <!-- The user was silent, restart the field. -->
+   <noinput>
+    I did not hear anything. Please try again.
+    <reprompt/>
+   </noinput>
+   <!-- The user said something that was not defined in our grammar. -->
+   <nomatch>
+     I did not recognize that character. Please try again.
+    <reprompt/>
+   </nomatch>
+  </field>
+
+  <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
+  <filled namelist="State">
+  <if cond="State == 'Washington'"> 
+   <prompt>
+     Seattle sounds like a cool place! 
+   </prompt>
+  <elseif cond="State == 'California'" />
+   <prompt>
+     Sunshine! 
+   </prompt>
+  <else/>
+   <prompt>
+     That's interesting!
+   </prompt>
+  </if> 
+</filled>
+</form>	
+
 </vxml>
