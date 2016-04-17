@@ -2,23 +2,17 @@
 
 <vxml version = "2.1">
 
- 
-
 <meta name="maintainer" content="YOUREMAILADDRESS@HERE.com" />
-
  
-
 <form id="MainMenu">
 
-  <field name="SouthParkCharacter">
+  <field name="City">
 
    <prompt>
 
-     Please say your favorite South Park character's name.
+     Hi, how are you today? Which city are you located?
 
    </prompt>
-
- 
 
   <!-- Define the grammar. -->
 
@@ -28,57 +22,15 @@
 
    <one-of>
 
-    <item> KENNY </item>
+    <item> Seattle </item>
 
-    <item> Cartman </item>
-
-    <item> stan </item>
-
-    <item> kyle </item>
-
-    <item> canadians </item>
-
-    <item> chef </item>
-
-    <item> wendy </item>
-
-    <item> timmy </item>
-
-    <item> hanky </item>
-
-    <item> garrison </item>
-
-    <item> pip </item>
-
-    <item> ike </item>
-
-    <item> mephisto </item>
-
-    <item> jimbo </item>
-
-    <item> tweak </item>
-
-    <item> marvin </item>
-
-    <item> terrance </item>
-
-    <item> phillip </item>
-
-    <item> mister hat </item>
-
-    <item> big gay al </item>
-
-    <item> cartmans mom </item>
-
-    <item> mister mackey </item>
+    <item> San Diego </item>
 
     </one-of>
 
    </rule>
 
    </grammar>
-
- 
 
    <!-- The user was silent, restart the field. -->
 
@@ -89,8 +41,6 @@
     <reprompt/>
 
    </noinput>
-
- 
 
    <!-- The user said something that was not defined in our grammar. -->
 
@@ -104,161 +54,23 @@
 
   </field>
 
- 
-
   <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
 
-  <filled namelist="SouthParkCharacter">
+  <filled namelist="City">
 
-  <if cond="SouthParkCharacter == 'KENNY'">
+  <if cond="City == 'Seattle'">
 
    <prompt>
 
-     Kenny has more lives than a cat.
+     Have you visited University of Washington? 
 
    </prompt>
 
-  <elseif cond="SouthParkCharacter == 'Cartman'" />
+  <elseif cond="City == 'San Diego'" />
 
    <prompt>
 
-     Cartman is not fat. He is big boned.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'stan'" />
-
-   <prompt>
-
-     Stan likes Wendy.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'kyle'" />
-
-   <prompt>
-
-     Kyle has a gay dog.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'canadians'" />
-
-   <prompt>
-
-     Canada. What is that a boot?
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'chef'" />
-
-   <prompt>
-
-     Chef is the coolest man in South Park.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'mister hat'" />
-
-   <prompt>
-
-     Mister Hat is a puppet.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'big gay al'" />
-
-   <prompt>
-
-     Big Gay Al is gay.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'wendy'" />
-
-   <prompt>
-
-     Wendy likes Stan.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'timmy'" />
-
-   <prompt>
-
-     Timmmy!  Timmmy tim maugh!
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'hanky'" />
-
-   <prompt>
-
-     Mister Hanky, the Christmas poo.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'garrison'" />
-
-   <prompt>
-
-     Mister Garrison is gay.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'cartmans mom'" />
-
-   <prompt>
-
-     Cartman's mom loves the Denver Broncos.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'pip'" />
-
-   <prompt>
-
-     Pip is British.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'ike'" />
-
-   <prompt>
-
-     Ike is also Canadian.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'mister mackey'" />
-
-   <prompt>
-
-     Mister Mackey. ummm kay.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'mephisto'" />
-
-   <prompt>
-
-     Mephisto enjoys experimenting on animals.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'jimbo'" />
-
-   <prompt>
-
-     Jimbo is a redneck.
-
-   </prompt>
-
-  <elseif cond="SouthParkCharacter == 'marvin'" />
-
-   <prompt>
-
-     Marvin is really hungry.
+     It's a beautiful place! 
 
    </prompt>
 
@@ -266,11 +78,7 @@
 
    <prompt>
 
-     A match has occurred, but no specific if statement
-
-     was written for it. Probably just a minor character
-
-     like Tweak or Jimbo's gun-toting friend.
+     I'm sure you live on Mars!
 
    </prompt>
 
