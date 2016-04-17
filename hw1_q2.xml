@@ -124,7 +124,7 @@
   </field>
 
   <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
-  <filled namelist="current">
+  <filled namelist="ForecastC">
   <if cond="ForecastC == 'current'"> 
    <prompt>
      The weather in sunshine San Diego, California currently is sunny. 
@@ -172,7 +172,7 @@
   </field>
 
   <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
-  <filled namelist="current">
+  <filled namelist="ForecastW">
   <if cond="ForecastW == 'current'"> 
    <prompt>
      It is currently raining now in Seattle, Washington currently.
