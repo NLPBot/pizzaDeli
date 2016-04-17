@@ -99,15 +99,16 @@
 <form id="ForecastC">
   <field name="ForecastC">
    <prompt>
-     Do you want to know the weather forecast for the current weather, short term, or the long term?
+     Please choose from the following options. Do you want to weather forecast currently, shor-term or the long-term.
+     For current weather, say one. For short-term weather, say two. For the long-term weather, say three.
    </prompt>
   <!-- Define the grammar. -->
   <grammar xml:lang="en-us" root = "myrule">
    <rule id="myrule">
    <one-of>
-    <item> current </item>
-    <item> short term </item>
-    <item> long term </item>
+    <item> one </item>
+    <item> two </item>
+    <item> three </item>
     </one-of>
    </rule>
    </grammar>
@@ -125,12 +126,12 @@
 
   <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
   <filled namelist="ForecastC">
-  <if cond="ForecastC == 'current'"> 
+  <if cond="ForecastC == 'one'"> 
    <prompt>
      The weather in sunshine San Diego, California currently is sunny. 
      Have a nice day!
    </prompt>
-  <elseif cond="ForecastC == 'short term'" />
+  <elseif cond="ForecastC == 'two'" />
    <prompt>
      The weather in sunshine San Diego, California currently is mostly sunny.
      Have a nice day!
@@ -147,15 +148,16 @@
 <form id="ForecastW">
   <field name="ForecastW">
    <prompt>
-     Do you want to know the weather forecast for the current weather, short term, or the long term?
+     Please choose from the following options. Do you want to weather forecast currently, shor-term or the long-term.
+     For current weather, say one. For short-term weather, say two. For the long-term weather, say three.
    </prompt>
   <!-- Define the grammar. -->
   <grammar xml:lang="en-us" root = "myrule">
    <rule id="myrule">
    <one-of>
-    <item> current </item>
-    <item> short term </item>
-    <item> long term </item>
+    <item> one </item>
+    <item> two </item>
+    <item> three </item>
     </one-of>
    </rule>
    </grammar>
@@ -173,12 +175,12 @@
 
   <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
   <filled namelist="ForecastW">
-  <if cond="ForecastW == 'current'"> 
+  <if cond="ForecastW == 'one'"> 
    <prompt>
      It is currently raining now in Seattle, Washington currently.
      Have a nice day!
    </prompt>
-  <elseif cond="ForecastW == 'short term'" />
+  <elseif cond="ForecastW == 'three'" />
    <prompt>
      It will be raining in Seattle, Washington currently.
      Have a nice day!
