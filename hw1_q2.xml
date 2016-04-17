@@ -36,14 +36,14 @@
   <filled namelist="City">
   <if cond="City == 'Seattle'"> 
    <prompt>
-     Seattle sounds like a cool place! 
-     <goto next="#State"/> 
+     Seattle sounds like a cool place!  
    </prompt>
+   <goto next="#State"/>
   <elseif cond="City == 'San Diego'" />
    <prompt>
      It's a beautiful place! 
-     <goto next="#State"/> 
    </prompt>
+   <goto next="#State"/> 
   <else/>
    <prompt>
      I'm sure you live on Mars!
