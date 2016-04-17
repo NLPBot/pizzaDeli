@@ -1,91 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <vxml version = "2.1">
-
-<meta name="maintainer" content="YOUREMAILADDRESS@HERE.com" />
- 
-<form id="MainMenu">
-
+<meta name="maintainer" content="erniecyc@gmail.com" />
+<form id="City">
+		<block>
+			<prompt bargein="false"> This is the Hello World Main Menu. </prompt>
+		</block>
   <field name="City">
-
    <prompt>
-
      Hi, how are you today? Which city are you located?
-
    </prompt>
-
   <!-- Define the grammar. -->
-
   <grammar xml:lang="en-us" root = "myrule">
-
    <rule id="myrule">
-
    <one-of>
-
     <item> Seattle </item>
-
     <item> San Diego </item>
-
     </one-of>
-
    </rule>
-
    </grammar>
-
    <!-- The user was silent, restart the field. -->
-
    <noinput>
-
     I did not hear anything. Please try again.
-
     <reprompt/>
-
    </noinput>
-
    <!-- The user said something that was not defined in our grammar. -->
-
    <nomatch>
-
      I did not recognize that character. Please try again.
-
     <reprompt/>
-
    </nomatch>
-
   </field>
-
   <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
-
   <filled namelist="City">
-
-  <if cond="City == 'Seattle'">
-
+  <if cond="City == 'Seattle'"> 
    <prompt>
-
-     Have you visited University of Washington? 
-
+     Seattle sounds like a cool place! 
+     <goto next="#State"/> 
    </prompt>
-
   <elseif cond="City == 'San Diego'" />
-
    <prompt>
-
      It's a beautiful place! 
-
+     <goto next="#State"/> 
    </prompt>
-
   <else/>
-
    <prompt>
-
      I'm sure you live on Mars!
-
    </prompt>
-
   </if> 
-
 </filled>
-
 </form>
-
 </vxml>
