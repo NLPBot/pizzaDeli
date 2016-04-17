@@ -128,17 +128,17 @@
   <filled namelist="ForecastC">
   <if cond="ForecastC == 'one'"> 
    <prompt>
-     The weather in sunshine San Diego, California currently is sunny. 
+     The weather in sunshine San Diego California currently is sunny. 
      Have a nice day!
    </prompt>
   <elseif cond="ForecastC == 'two'" />
    <prompt>
-     The weather in sunshine San Diego, California is mostly sunny.
+     The weather in sunshine San Diego California is mostly sunny.
      Have a nice day!
    </prompt>
   <else/>
    <prompt>
-     The weather in sunshine San Diego, California is always sunny!
+     The weather in sunshine San Diego California is always sunny!
      Have a nice day!
    </prompt>
   </if> 
@@ -177,17 +177,17 @@
   <filled namelist="ForecastW">
   <if cond="ForecastW == 'one'"> 
    <prompt>
-     It is currently raining now in Seattle, Washington currently.
+     It is currently raining now in Seattle Washington currently.
      Have a nice day!
    </prompt>
   <elseif cond="ForecastW == 'two'" />
    <prompt>
-     It will be raining in Seattle, Washington.
+     It will be raining in Seattle Washington.
      Have a nice day!
    </prompt>
   <else/>
    <prompt>
-     It will always be raining in Seattle, Washington.
+     It will always be raining in Seattle Washington.
      Have a nice day!
    </prompt>
   </if> 
