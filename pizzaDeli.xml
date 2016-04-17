@@ -2,7 +2,7 @@
 <form>
 <block>
 <prompt>
-Hi how may I help you?
+Hello World. This is my first telephone application.
 </prompt>
 </block>
 </form>
