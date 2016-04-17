@@ -1,0 +1,9 @@
+<vxml version="2.1">
+<form>
+<block>
+<prompt>
+Hi, how are you today?
+</prompt>
+</block>
+</form>
+</vxml>
