@@ -85,9 +85,9 @@
   <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
   <filled namelist="State">
   <if cond="State == 'Washington'"> 
-   <goto next="#Forecast_W"/>
+   <goto next="#ForecastW"/>
   <elseif cond="State == 'California'" />
-   <goto next="#Forecast_C"/>
+   <goto next="#ForecastC"/>
   <else/>
    <prompt>
      That's interesting!
@@ -96,8 +96,8 @@
 </filled>
 </form>	
 
-<form id="Forecast_C">
-  <field name="Forecast_C">
+<form id="ForecastC">
+  <field name="ForecastC">
    <prompt>
      Do you want to know the weather forecast for the current weather, short term, or the long term?
    </prompt>
@@ -125,12 +125,12 @@
 
   <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
   <filled namelist="current">
-  <if cond="Forecast_C == 'current'"> 
+  <if cond="ForecastC == 'current'"> 
    <prompt>
      The weather in sunshine San Diego, California currently is sunny. 
      Have a nice day!
    </prompt>
-  <elseif cond="Forecast_C == 'short term'" />
+  <elseif cond="ForecastC == 'short term'" />
    <prompt>
      The weather in sunshine San Diego, California currently is mostly sunny.
      Have a nice day!
@@ -144,8 +144,8 @@
 </filled>
 </form>	
 
-<form id="Forecast_W">
-  <field name="Forecast_W">
+<form id="ForecastW">
+  <field name="ForecastW">
    <prompt>
      Do you want to know the weather forecast for the current weather, short term, or the long term?
    </prompt>
@@ -173,12 +173,12 @@
 
   <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
   <filled namelist="current">
-  <if cond="Forecast_W == 'current'"> 
+  <if cond="ForecastW == 'current'"> 
    <prompt>
      It is currently raining now in Seattle, Washington currently.
      Have a nice day!
    </prompt>
-  <elseif cond="Forecast_W == 'short term'" />
+  <elseif cond="ForecastW == 'short term'" />
    <prompt>
      It will be raining in Seattle, Washington currently.
      Have a nice day!
