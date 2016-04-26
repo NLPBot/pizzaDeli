@@ -69,26 +69,28 @@
     </item>
  
     <!-- TOP LEVEL RETURN-->
-    <tag> out.F_1 = out.citySlot + out.stateSlot + " is " + out.weatherSlot </tag>   
+    <tag> out.F_1 = out.citySlot + out.stateSlot + out.weatherSlot </tag>   
   </rule>
  
   <rule id="CITY" scope="public">
     <one-of>
     <item> seattle <tag>out.citySubsSlot="seattle";</tag></item>
+    <item> san diego <tag>out.citySubsSlot="san diego";</tag></item>
     </one-of>
   </rule>
    
   <rule id="STATE" scope="public">
     <one-of>
     <item> washington <tag>out.stateSubsSlot="washington";</tag></item>
+    <item> san diego <tag>out.stateSubsSlot="san diego";</tag></item>
     </one-of>
   </rule>
    
   <rule id="WEATHER" scope="public">
     <one-of>
-    <item> one <tag> out.weatherSubsSlot=" currently sunny "; </tag></item>
-    <item> two <tag> out.weatherSubsSlot=" sometimes rainy "; </tag></item>
-    <item> three <tag> out.weatherSubsSlot=" mainly rainy "; </tag></item>    
+    <item> one <tag> out.weatherSubsSlot=" is currently sunny "; </tag></item>
+    <item> two <tag> out.weatherSubsSlot=" will be rainy "; </tag></item>
+    <item> three <tag> out.weatherSubsSlot=" will mainly be rainy "; </tag></item>    
     </one-of>
   </rule>
 </grammar>
