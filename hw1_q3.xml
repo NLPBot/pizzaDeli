@@ -1,71 +1,44 @@
 <?xml version="1.0"?>
-<vxml version = "2.1">
+<vxml version="2.1">
  
-<form>
-<field name="F_1">
-   <prompt>
-    What is my name?
-   </prompt>
- 
-<grammar xml:lang="en-US" root = "TOPLEVEL">
-  <rule id="TOPLEVEL" scope="public">
-   <item>
- 
-<!-- FIRST NAME RETURN -->
-    <item repeat="0-1">
-     <ruleref uri="#FIRSTNAME" />
-      <tag>out.firstNameSlot=rules.FIRSTNAME.firstNameSubslot</tag>
-    </item>
- 
-<!-- MIDDLE NAME RETURN -->
-    <item repeat="0-1">
-     <ruleref uri="#MIDDLENAME" />
-      <tag>out.middleNameSlot=rules.MIDDLENAME.middleNameSubslot</tag>
-    </item>
- 
-<!-- LAST NAME RETURN -->
-     <ruleref uri="#LASTNAME" />
-      <tag>out.lastNameSlot=rules.LASTNAME.lastNameSubslot</tag>
-    </item>
- 
-<!-- TOP LEVEL RETURN-->
-      <tag> out.F_1= out.firstNameSlot + out.middleNameSlot + out.lastNameSlot </tag>
-  </rule>
- 
-<rule id="FIRSTNAME" scope="public">
-  <one-of>
-  <item> matt<tag>out.firstNameSubslot="matthew";</tag></item>
-  <item> dee <tag> out.firstNameSubslot="dee ";</tag></item>
-  <item> jon <tag> out.firstNameSubslot="jon ";</tag></item>
-  <item> george <tag>out.firstNameSubslot="george ";</tag></item>
-  <item> billy <tag> out.firstNameSubslot="billy ";</tag></item>
-  </one-of>
-</rule>
- 
-<rule id="MIDDLENAME" scope="public">
-  <one-of>
-  <item> bon <tag>out.middleNameSubslot="bon ";</tag></item>
-  <item> double ya <tag> out.middleNameSubslot="w ";</tag></item>
-  <item> dee <tag> out.middleNameSubslot="dee ";</tag></item>
-  </one-of>
-</rule>
- 
-<rule id="LASTNAME" scope="public">
-  <one-of>
-  <item> henry <tag> out.lastNameSubslot="henry "; </tag></item>
-  <item> ramone <tag> out.lastNameSubslot="dee "; </tag></item>
-  <item> jovi <tag> out.lastNameSubslot="jovi "; </tag></item>
-  <item> bush <tag> out.lastNameSubslot=""bush "; </tag></item>
-  <item> williams <tag> out.lastNameSubslot="williams "; </tag></item>
-  </one-of>
-</rule>
-</grammar>
- 
-  <filled>
+<form id="MainMenu">
+  <field name="MyName">
     <prompt>
-     You said that yo daddy is <value expr="F_1" />.
+      Please say your first, middle, and last name.
     </prompt>
-  </filled>
+ 
+    <grammar type="application/x-gsl">
+      <![CDATA[s
+           FULLNAME
+           [NAME:d {<MyName $d>}]
+       
+           NAME
+           (FIRSTNAME:a ?MIDDLENAME:b LASTNAME:c)
+           {return(strcat($a strcat($b $c)))}
+       
+           FIRSTNAME
+           [[matt] {return("matt ")}
+           [mark] {return("mark ")}
+           [mick] {return("mick ")}]
+       
+           MIDDLENAME
+           [[warren] {return("warren ")}
+           [warner] {return("warner ")}
+           [warper] {return(" ")}]
+       
+           LASTNAME
+           [[henry] {return("henry ")}
+           [hesse] {return("hesse ")}
+           [hertz] {return("hertz ")}]
+      ]]>
+    </grammar>
+ 
+    <filled>
+      <prompt>
+       You said <value expr="MyName"/>
+      </prompt>
+    </filled>
+ 
   </field>
 </form>
 </vxml>
