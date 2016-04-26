@@ -2,10 +2,13 @@
 <vxml version = "2.1">
 <meta name="maintainer" content="erniecyc@gmail.com" />
 <property name="grammarfetchint" value="prefetch" />
+
+<property name="universals" value="help cancel exit repeat" />
+
 <form id="City">
-		<block>
-			<prompt bargein="false"> Hi, my name is Gina </prompt>
-		</block>
+    <block>
+      <prompt bargein="false"> Hi, my name is Gina </prompt>
+    </block>
 
   <field name="City">
    <prompt>
@@ -34,29 +37,36 @@
 
   <!-- Checks the "City" value against each of the valid values. -->
   <filled namelist="City">
-  <if cond="City == 'Seattle'"> 
-   <prompt>
-     Seattle sounds like a cool place!  
-   </prompt>
-   <goto next="#State"/>
-  <elseif cond="City == 'San Diego'" />
-   <prompt>
-     It's a beautiful place! 
-   </prompt>
-   <goto next="#State"/> 
-  <else/>
-   <prompt>
-     I'm sure you live on Mars!
-   </prompt>
-  </if> 
-</filled>
+    <if cond="City == 'Seattle'"> 
+     <prompt>
+       Seattle sounds like a cool place!  
+     </prompt>
+     <goto next="#State"/>
+    <elseif cond="City == 'San Diego'" />
+     <prompt>
+       It's a beautiful place! 
+     </prompt>
+     <goto next="#State"/> 
+    <else/>
+     <prompt>
+       I'm sure you live on Mars!
+     </prompt>
+    </if> 
+  </filled>
+  <!-- The help universal will always look for the <help> tags -->
+  <!-- when a help tag is found the execution will continue here -->
+  <help>
+    <prompt>
+      YAY you asked for help so I give you cheese burger
+    </prompt>
+  </help>
 
 </form>
 
 <form id="State">
-		<block>
-			<prompt bargein="false"> We will also need to know which state you live in.  </prompt>
-		</block>
+    <block>
+      <prompt bargein="false"> We will also need to know which state you live in.  </prompt>
+    </block>
   <field name="State">
    <prompt>
      Which state do you live in?
@@ -94,7 +104,7 @@
    </prompt>
   </if> 
 </filled>
-</form>	
+</form> 
 
 <form id="ForecastC">
   <field name="ForecastC">
@@ -143,7 +153,7 @@
    </prompt>
   </if> 
 </filled>
-</form>	
+</form> 
 
 <form id="ForecastW">
   <field name="ForecastW">
@@ -192,7 +202,7 @@
    </prompt>
   </if> 
 </filled>
-</form>	
+</form> 
 
 </vxml>
 
@@ -201,100 +211,6 @@
 
 
 
-
-
-
-
-
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE vxml PUBLIC "-//W3C//DTD VOICEXML 2.1//EN" "http://www.w3.org/TR/2007/REC-voicexml21-20070619/vxml.dtd">
-<vxml version="2.1">
- 
-<!-- Document level grammar result for the result form -->
-<var name="doc_result" />
-<form id="frm_main">
- 
-  <!-- this is a document level grammar -->
-  <grammar type="text/gsl" scope="document">
-   <![CDATA[
-    [
-     ( [one dtmf-1] ) { <doc "one"> }
-     ( [two dtmf-2] ) { <doc "two"> }
-     ( [exit dtmf-0] ) { <doc "term"> }
-    ]
-   ]]>
-  </grammar>
- 
-  <!-- Our document level grammar was filled
-     send the user to the next form -->
-  <filled namelist="doc">
-   <assign name="doc_result" expr="doc" />
-   <goto next="#frm_doc_filled" />
-  </filled>
- 
-  <!-- Get some input for the local grammar field -->
-  <field name="field1" >
- 
-   <!-- This is a local grammar -->
-   <grammar type="text/gsl">
-    <![CDATA[
-     [
-      ( [three dtmf-3] ) { <field1 "three"> }
-      ( [four dtmf-4] ) { <field1 "four"> }
-     ]
-    ]]>
-   </grammar>
- 
-   <!-- This is the main menu prompt -->
-   <prompt>
-    Hi, this is Gina, the weather broadcaster. 
-    Press one or two for the document level grammar to answer
-    Enter three or four for the dialog or local level grammar to answer
-    If you press zero the document level grammar will say goodbye and hangup
-   </prompt>
-  </field>
- 
-  <!-- our local grammar was filled -->
-  <filled namelist="field1">
-   <prompt>
-    You said <value expr="field1" />
-    <break time="1000ms" />
-   </prompt>
- 
-   <!-- Loop Back to main -->
-   <goto next="#frm_main" />
-  </filled>
- 
-  <!-- Set up an empty field to grab the document level grammar data -->
-  <field name="doc" />
-</form>
- 
-<!-- Create a new form for the filled document scope grammar -->
-<form id="frm_doc_filled">
-  <block>
-   <prompt>
-    This is the document level grammar answering
-    You said <value expr="doc_result" />
-   </prompt>
- 
-   <!-- Check to see if we got a 0 for hangup -->
-   <if cond="doc_result == 'term'">
-    <prompt>
-     Goodbye
-    </prompt>
- 
-    <!-- Exit the application -->
-    <exit />
- 
-   <else />
-    <prompt>
-     Going back to the main form
-    </prompt>
-    <goto next="#frm_main" />
-   </if>
-  </block>
-</form>
-</vxml>
 
 
 
