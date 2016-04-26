@@ -32,7 +32,7 @@
    </nomatch>
   </field>
 
-  <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
+  <!-- Checks the "City" value against each of the valid values. -->
   <filled namelist="City">
   <if cond="City == 'Seattle'"> 
    <prompt>
@@ -82,7 +82,7 @@
    </nomatch>
   </field>
 
-  <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
+  <!-- Checks the "State" value against each of the valid values. -->
   <filled namelist="State">
   <if cond="State == 'Washington'"> 
    <goto next="#ForecastW"/>
@@ -124,7 +124,7 @@
    </nomatch>
   </field>
 
-  <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
+  <!-- Checks the "ForecastC" value against each of the valid values. -->
   <filled namelist="ForecastC">
   <if cond="ForecastC == 'one'"> 
    <prompt>
@@ -173,7 +173,7 @@
    </nomatch>
   </field>
 
-  <!-- Checks the "SouthParkCharacter" value against each of the valid values. -->
+  <!-- Checks the "ForecastW" value against each of the valid values. -->
   <filled namelist="ForecastW">
   <if cond="ForecastW == 'one'"> 
    <prompt>
