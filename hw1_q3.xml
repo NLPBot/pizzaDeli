@@ -4,7 +4,8 @@
 <form>
 <field name="F_1">
    <prompt>
-    What is my name?
+    Please listen to the following options.
+    Please tell us your city, state and follow by long term, short term or the current weather.
    </prompt>
  
 <grammar xml:lang="en-US" root = "TOPLEVEL">
@@ -12,47 +13,47 @@
     <item>
       <!-- FIRST NAME RETURN -->
       <item repeat="0-1">
-        <ruleref uri="#FIRSTNAME" />
-        <tag>out.firstNameSlot=rules.FIRSTNAME.firstNameSubslot</tag>
+        <ruleref uri="#CITY" />
+        <tag>out.citySlot=rules.CITY.citySubsSlot</tag>
       </item>
  
       <!-- MIDDLE NAME RETURN -->
       <item repeat="0-1">
-        <ruleref uri="#MIDDLENAME" />
-        <tag>out.middleNameSlot=rules.MIDDLENAME.middleNameSubslot</tag>
+        <ruleref uri="#STATE" />
+        <tag>out.stateSlot=rules.STATE.stateSubsSlot</tag>
       </item>
  
       <!-- LAST NAME RETURN -->
-      <ruleref uri="#LASTNAME" />
-      <tag>out.lastNameSlot=rules.LASTNAME.lastNameSubslot</tag>
+      <ruleref uri="#WEATHER" />
+      <tag>out.weatherSlot=rules.WEATHER.weatherSubsSlot</tag>
     </item>
  
     <!-- TOP LEVEL RETURN-->
-    <tag> out.F_1= out.firstNameSlot + out.middleNameSlot + out.lastNameSlot </tag>
+    <tag> out.F_1= out.citySlot + out.stateSlot + out.weatherSlot </tag>
   </rule>
  
-  <rule id="FIRSTNAME" scope="public">
+  <rule id="CITY" scope="public">
     <one-of>
-    <item> Ernie <tag>out.firstNameSubslot="Ernie";</tag></item>
+    <item> seattle <tag>out.citySubsSlot=" seattle ";</tag></item>
     </one-of>
   </rule>
    
-  <rule id="MIDDLENAME" scope="public">
+  <rule id="STATE" scope="public">
     <one-of>
-    <item> w <tag>out.middleNameSubslot=" ernie ";</tag></item>
+    <item> washington <tag>out.stateSubsSlot=" washington ";</tag></item>
     </one-of>
   </rule>
    
-  <rule id="LASTNAME" scope="public">
+  <rule id="WEATHER" scope="public">
     <one-of>
-    <item> Chang <tag> out.lastNameSubslot="Chang "; </tag></item>
+    <item> short term <tag> out.weatherSubsSlot="short term"; </tag></item>
     </one-of>
   </rule>
 </grammar>
  
   <filled>
     <prompt>
-     My daddy is <value expr="F_1" />.
+      The weather is <value expr="F_1" />.
     </prompt>
   </filled>
   </field>
