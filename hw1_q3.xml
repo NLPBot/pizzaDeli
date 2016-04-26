@@ -5,7 +5,7 @@
 <field name="F_1">
    <prompt>
     Please listen to the following options.
-    Please tell us your city, state and follow by one for the current weather two for short term and three for the long term.
+    Please tell us your city, state and follow by one for the current weather, two for short term, and three for the long term.
    </prompt>
  
 <grammar xml:lang="en-US" root = "TOPLEVEL">
@@ -29,7 +29,7 @@
     </item>
  
     <!-- TOP LEVEL RETURN-->
-    <tag> out.F_1= out.citySlot + out.stateSlot + out.weatherSlot </tag>
+    <tag> out.F_1= out.citySlot + out.stateSlot + " is " + out.weatherSlot </tag>
   </rule>
  
   <rule id="CITY" scope="public">
