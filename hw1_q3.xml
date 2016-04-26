@@ -67,7 +67,7 @@
     </item>
  
     <!-- TOP LEVEL RETURN-->
-    <tag> out.F_1 = out.citySlot + out.stateSlot + out.weatherSlot </tag>   
+    <tag> out.F_1 = out.citySlot + "," + out.stateSlot + out.weatherSlot </tag>   
   </rule>
  
   <rule id="CITY" scope="public">
