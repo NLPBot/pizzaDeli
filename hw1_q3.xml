@@ -36,8 +36,6 @@
      </prompt>
     </if> 
   </filled>
-
-
 </form>
 
 <form id="Single">
@@ -82,7 +80,7 @@
   <rule id="STATE" scope="public">
     <one-of>
     <item> washington <tag>out.stateSubsSlot="washington";</tag></item>
-    <item> san diego <tag>out.stateSubsSlot="san diego";</tag></item>
+    <item> california <tag>out.stateSubsSlot="california";</tag></item>
     </one-of>
   </rule>
    
