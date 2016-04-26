@@ -29,9 +29,7 @@
     </item>
  
     <!-- TOP LEVEL RETURN-->
-    <tag> out.F_1 = out.citySlot + out.stateSlot + " is " </tag>   
-    <tag> out.F_2 = " is " + out.weatherSlot </tag>   
-
+    <tag> out.F_1 = out.citySlot + out.stateSlot + " is " + out.weatherSlot </tag>   
   </rule>
  
   <rule id="CITY" scope="public">
@@ -57,7 +55,7 @@
  
   <filled>
     <prompt>
-      The weather in <value expr="F_1" /> <value expr="F_2" />
+      The weather in <value expr="F_1" />
     </prompt>
   </filled>
 </field>
