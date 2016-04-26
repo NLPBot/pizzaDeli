@@ -33,26 +33,26 @@
  
   <rule id="FIRSTNAME" scope="public">
     <one-of>
-    <item> Ernie <tag>out.firstNameSubslot="matthew";</tag></item>
+    <item> Ernie <tag>out.firstNameSubslot="Ernie";</tag></item>
     </one-of>
   </rule>
    
   <rule id="MIDDLENAME" scope="public">
     <one-of>
-    <item> w <tag>out.middleNameSubslot="bon ";</tag></item>
+    <item> w <tag>out.middleNameSubslot="w ";</tag></item>
     </one-of>
   </rule>
    
   <rule id="LASTNAME" scope="public">
     <one-of>
-    <item> Chang <tag> out.lastNameSubslot="henry "; </tag></item>
+    <item> Chang <tag> out.lastNameSubslot="Chang "; </tag></item>
     </one-of>
   </rule>
 </grammar>
  
   <filled>
     <prompt>
-     You said that yo daddy is <value expr="F_1" />.
+     My daddy is <value expr="F_1" />.
     </prompt>
   </filled>
   </field>
