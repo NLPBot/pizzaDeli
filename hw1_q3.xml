@@ -34,13 +34,13 @@
  
   <rule id="CITY" scope="public">
     <one-of>
-    <item> seattle <tag>out.citySubsSlot=" seattle ";</tag></item>
+    <item> seattle <tag>out.citySubsSlot="seattle";</tag></item>
     </one-of>
   </rule>
    
   <rule id="STATE" scope="public">
     <one-of>
-    <item> washington <tag>out.stateSubsSlot=" washington ";</tag></item>
+    <item> washington <tag>out.stateSubsSlot="washington";</tag></item>
     </one-of>
   </rule>
    
