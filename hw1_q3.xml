@@ -1,197 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <vxml version = "2.1">
-<meta name="maintainer" content="erniecyc@gmail.com" />
-<property name="grammarfetchint" value="prefetch" />
-<form id="City">
-		<block>
-			<prompt bargein="false"> Hi, my name is Gina </prompt>
-		</block>
-
-  <field name="City">
+ 
+<form>
+<field name="F_1">
    <prompt>
-     how are you today? Which city are you located?
+    What is my name?
    </prompt>
-  <!-- Define the grammar. -->
-  <grammar xml:lang="en-us" root = "myrule">
-   <rule id="myrule">
-   <one-of>
-    <item> Seattle </item>
-    <item> San Diego </item>
-    </one-of>
-   </rule>
-   </grammar>
-   <!-- The user was silent, restart the field. -->
-   <noinput>
-    I did not hear anything. Please try again.
-    <reprompt/>
-   </noinput>
-   <!-- The user said something that was not defined in our grammar. -->
-   <nomatch>
-     I did not recognize that character. Please try again.
-    <reprompt/>
-   </nomatch>
+ 
+<grammar xml:lang="en-US" root = "TOPLEVEL">
+  <rule id="TOPLEVEL" scope="public">
+   <item>
+ 
+<!-- FIRST NAME RETURN -->
+    <item repeat="0-1">
+     <ruleref uri="#FIRSTNAME" />
+      <tag>out.firstNameSlot=rules.FIRSTNAME.firstNameSubslot</tag>
+    </item>
+ 
+<!-- MIDDLE NAME RETURN -->
+    <item repeat="0-1">
+     <ruleref uri="#MIDDLENAME" />
+      <tag>out.middleNameSlot=rules.MIDDLENAME.middleNameSubslot</tag>
+    </item>
+ 
+<!-- LAST NAME RETURN -->
+     <ruleref uri="#LASTNAME" />
+      <tag>out.lastNameSlot=rules.LASTNAME.lastNameSubslot</tag>
+    </item>
+ 
+<!-- TOP LEVEL RETURN-->
+      <tag> out.F_1= out.firstNameSlot + out.middleNameSlot + out.lastNameSlot </tag>
+  </rule>
+ 
+<rule id="FIRSTNAME" scope="public">
+  <one-of>
+  <item> matt<tag>out.firstNameSubslot="matthew";</tag></item>
+  <item> dee <tag> out.firstNameSubslot="dee ";</tag></item>
+  <item> jon <tag> out.firstNameSubslot="jon ";</tag></item>
+  <item> george <tag>out.firstNameSubslot="george ";</tag></item>
+  <item> billy <tag> out.firstNameSubslot="billy ";</tag></item>
+  </one-of>
+</rule>
+ 
+<rule id="MIDDLENAME" scope="public">
+  <one-of>
+  <item> bon <tag>out.middleNameSubslot="bon ";</tag></item>
+  <item> double ya <tag> out.middleNameSubslot="w ";</tag></item>
+  <item> dee <tag> out.middleNameSubslot="dee ";</tag></item>
+  </one-of>
+</rule>
+ 
+<rule id="LASTNAME" scope="public">
+  <one-of>
+  <item> henry <tag> out.lastNameSubslot="henry "; </tag></item>
+  <item> ramone <tag> out.lastNameSubslot="dee "; </tag></item>
+  <item> jovi <tag> out.lastNameSubslot="jovi "; </tag></item>
+  <item> bush <tag> out.lastNameSubslot=""bush "; </tag></item>
+  <item> williams <tag> out.lastNameSubslot="williams "; </tag></item>
+  </one-of>
+</rule>
+</grammar>
+ 
+  <filled>
+    <prompt>
+     You said that yo daddy is <value expr="F_1" />.
+    </prompt>
+  </filled>
   </field>
-
-  <!-- Checks the "City" value against each of the valid values. -->
-  <filled namelist="City">
-  <if cond="City == 'Seattle'"> 
-   <prompt>
-     Seattle sounds like a cool place!  
-   </prompt>
-   <goto next="#State"/>
-  <elseif cond="City == 'San Diego'" />
-   <prompt>
-     It's a beautiful place! 
-   </prompt>
-   <goto next="#State"/> 
-  <else/>
-   <prompt>
-     I'm sure you live on Mars!
-   </prompt>
-  </if> 
-</filled>
-
 </form>
-
-<form id="State">
-		<block>
-			<prompt bargein="false"> We will also need to know which state you live in.  </prompt>
-		</block>
-  <field name="State">
-   <prompt>
-     Which state do you live in?
-   </prompt>
-  <!-- Define the grammar. -->
-  <grammar xml:lang="en-us" root = "myrule">
-   <rule id="myrule">
-   <one-of>
-    <item> Washington </item>
-    <item> California </item>
-    </one-of>
-   </rule>
-   </grammar>
-   <!-- The user was silent, restart the field. -->
-   <noinput>
-    I did not hear anything. Please try again.
-    <reprompt/>
-   </noinput>
-   <!-- The user said something that was not defined in our grammar. -->
-   <nomatch>
-     I did not recognize that character. Please try again.
-    <reprompt/>
-   </nomatch>
-  </field>
-
-  <!-- Checks the "State" value against each of the valid values. -->
-  <filled namelist="State">
-  <if cond="State == 'Washington'"> 
-   <goto next="#ForecastW"/>
-  <elseif cond="State == 'California'" />
-   <goto next="#ForecastC"/>
-  <else/>
-   <prompt>
-     That's interesting!
-   </prompt>
-  </if> 
-</filled>
-</form>	
-
-<form id="ForecastC">
-  <field name="ForecastC">
-   <prompt>
-     Please choose from the following options. Do you want to weather forecast currently, shor-term or the long-term.
-     For current weather, say one. For short-term weather, say two. For the long-term weather, say three.
-   </prompt>
-  <!-- Define the grammar. -->
-  <grammar xml:lang="en-us" root = "myrule">
-   <rule id="myrule">
-   <one-of>
-    <item> one </item>
-    <item> two </item>
-    <item> three </item>
-    </one-of>
-   </rule>
-   </grammar>
-   <!-- The user was silent, restart the field. -->
-   <noinput>
-    I did not hear anything. Please try again.
-    <reprompt/>
-   </noinput>
-   <!-- The user said something that was not defined in our grammar. -->
-   <nomatch>
-     I did not recognize that character. Please try again.
-    <reprompt/>
-   </nomatch>
-  </field>
-
-  <!-- Checks the "ForecastC" value against each of the valid values. -->
-  <filled namelist="ForecastC">
-  <if cond="ForecastC == 'one'"> 
-   <prompt>
-     The weather in sunshine San Diego California currently is sunny. 
-     Have a nice day!
-   </prompt>
-  <elseif cond="ForecastC == 'two'" />
-   <prompt>
-     The weather in sunshine San Diego California is mostly sunny.
-     Have a nice day!
-   </prompt>
-  <else/>
-   <prompt>
-     The weather in sunshine San Diego California is always sunny!
-     Have a nice day!
-   </prompt>
-  </if> 
-</filled>
-</form>	
-
-<form id="ForecastW">
-  <field name="ForecastW">
-   <prompt>
-     Please choose from the following options. Do you want to weather forecast currently, shor-term or the long-term.
-     For current weather, say one. For short-term weather, say two. For the long-term weather, say three.
-   </prompt>
-  <!-- Define the grammar. -->
-  <grammar xml:lang="en-us" root = "myrule">
-   <rule id="myrule">
-   <one-of>
-    <item> one </item>
-    <item> two </item>
-    <item> three </item>
-    </one-of>
-   </rule>
-   </grammar>
-   <!-- The user was silent, restart the field. -->
-   <noinput>
-    I did not hear anything. Please try again.
-    <reprompt/>
-   </noinput>
-   <!-- The user said something that was not defined in our grammar. -->
-   <nomatch>
-     I did not recognize that character. Please try again.
-    <reprompt/>
-   </nomatch>
-  </field>
-
-  <!-- Checks the "ForecastW" value against each of the valid values. -->
-  <filled namelist="ForecastW">
-  <if cond="ForecastW == 'one'"> 
-   <prompt>
-     It is currently raining now in Seattle Washington currently.
-     Have a nice day!
-   </prompt>
-  <elseif cond="ForecastW == 'two'" />
-   <prompt>
-     It will be raining in Seattle Washington.
-     Have a nice day!
-   </prompt>
-  <else/>
-   <prompt>
-     It will always be raining in Seattle Washington.
-     Have a nice day!
-   </prompt>
-  </if> 
-</filled>
-</form>	
-
 </vxml>
