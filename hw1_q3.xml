@@ -1,11 +1,51 @@
 <?xml version="1.0"?>
 <vxml version = "2.1">
+<meta name="maintainer" content="erniecyc@gmail.com" />
+<property name="grammarfetchint" value="prefetch" />
+
+<property name="universals" value="help cancel exit repeat" />
  
-<form>
+<form id="Main">
+
+  <field name="Option">
+    <prompt>
+     Please choose from the following options. 
+     Pick one for in order, and two, 
+     for single utterance
+    </prompt>
+     <!-- Define the grammar. -->
+    <grammar xml:lang="en-us" root = "myrule">
+     <rule id="myrule">
+     <one-of>
+      <item> One </item>
+      <item> Two </item>
+      </one-of>
+     </rule>
+    </grammar>
+  </field>
+
+  <!-- Checks the options -->
+  <filled namelist="Option">
+    <if cond="Option == 'One'"> 
+     <goto next="hw1_q2.xml" />
+    <elseif cond="Option == 'Two'" />
+     <goto next="#Single"/> 
+    <else/>
+     <prompt>
+       It's neither options!
+     </prompt>
+    </if> 
+  </filled>
+
+
+</form>
+
+<form id="Single">
 <field name="F_1">
    <prompt>
     Please listen to the following options.
-    Please tell us your city, state and follow by one, for the current weather, two, for short term, and three, for the long term.
+    Please tell us your city, state and follow by one, 
+    for the current weather, two, for short term, and three, for the long term.
    </prompt>
  
 <grammar xml:lang="en-US" root = "TOPLEVEL">
