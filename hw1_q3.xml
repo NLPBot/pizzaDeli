@@ -39,7 +39,7 @@
    
   <rule id="MIDDLENAME" scope="public">
     <one-of>
-    <item> w <tag>out.middleNameSubslot="w ";</tag></item>
+    <item> w <tag>out.middleNameSubslot=" ernie ";</tag></item>
     </one-of>
   </rule>
    
