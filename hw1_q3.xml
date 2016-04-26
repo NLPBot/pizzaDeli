@@ -5,25 +5,25 @@
 <field name="F_1">
    <prompt>
     Please listen to the following options.
-    Please tell us your city, state and follow by one for long term, three for short term and three for the current weather.
+    Please tell us your city, state and follow by one for the current weather two for short term and three for the long term.
    </prompt>
  
 <grammar xml:lang="en-US" root = "TOPLEVEL">
   <rule id="TOPLEVEL" scope="public">
     <item>
-      <!-- FIRST NAME RETURN -->
+      <!-- CITY -->
       <item repeat="0-1">
         <ruleref uri="#CITY" />
         <tag>out.citySlot=rules.CITY.citySubsSlot</tag>
       </item>
  
-      <!-- MIDDLE NAME RETURN -->
+      <!-- STATE-->
       <item repeat="0-1">
         <ruleref uri="#STATE" />
         <tag>out.stateSlot=rules.STATE.stateSubsSlot</tag>
       </item>
  
-      <!-- LAST NAME RETURN -->
+      <!-- WEATHER -->
       <ruleref uri="#WEATHER" />
       <tag>out.weatherSlot=rules.WEATHER.weatherSubsSlot</tag>
     </item>
@@ -46,7 +46,9 @@
    
   <rule id="WEATHER" scope="public">
     <one-of>
-    <item> three <tag> out.weatherSubsSlot="three"; </tag></item>
+    <item> one <tag> out.weatherSubsSlot=" rainy "; </tag></item>
+    <item> two <tag> out.weatherSubsSlot=" rainy "; </tag></item>
+    <item> three <tag> out.weatherSubsSlot=" rainy "; </tag></item>    
     </one-of>
   </rule>
 </grammar>
@@ -56,6 +58,6 @@
       The weather is <value expr="F_1" />.
     </prompt>
   </filled>
-  </field>
+</field>
 </form>
 </vxml>
