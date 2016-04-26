@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version = "2.1">
+<meta name="maintainer" content="erniecyc@gmail.com" />
+<property name="grammarfetchint" value="prefetch" />
+<form id="City">
+		<block>
+			<prompt bargein="false"> Hi, my name is Gina </prompt>
+		</block>
+
+  <field name="City">
+   <prompt>
+     how are you today? Which city are you located?
+   </prompt>
+  <!-- Define the grammar. -->
+  <grammar xml:lang="en-us" root = "myrule">
+   <rule id="myrule">
+   <one-of>
+    <item> Seattle </item>
+    <item> San Diego </item>
+    </one-of>
+   </rule>
+   </grammar>
+   <!-- The user was silent, restart the field. -->
+   <noinput>
+    I did not hear anything. Please try again.
+    <reprompt/>
+   </noinput>
+   <!-- The user said something that was not defined in our grammar. -->
+   <nomatch>
+     I did not recognize that character. Please try again.
+    <reprompt/>
+   </nomatch>
+  </field>
+
+  <!-- Checks the "City" value against each of the valid values. -->
+  <filled namelist="City">
+  <if cond="City == 'Seattle'"> 
+   <prompt>
+     Seattle sounds like a cool place!  
+   </prompt>
+   <goto next="#State"/>
+  <elseif cond="City == 'San Diego'" />
+   <prompt>
+     It's a beautiful place! 
+   </prompt>
+   <goto next="#State"/> 
+  <else/>
+   <prompt>
+     I'm sure you live on Mars!
+   </prompt>
+  </if> 
+</filled>
+
+</form>
+
+<form id="State">
+		<block>
+			<prompt bargein="false"> We will also need to know which state you live in.  </prompt>
+		</block>
+  <field name="State">
+   <prompt>
+     Which state do you live in?
+   </prompt>
+  <!-- Define the grammar. -->
+  <grammar xml:lang="en-us" root = "myrule">
+   <rule id="myrule">
+   <one-of>
+    <item> Washington </item>
+    <item> California </item>
+    </one-of>
+   </rule>
+   </grammar>
+   <!-- The user was silent, restart the field. -->
+   <noinput>
+    I did not hear anything. Please try again.
+    <reprompt/>
+   </noinput>
+   <!-- The user said something that was not defined in our grammar. -->
+   <nomatch>
+     I did not recognize that character. Please try again.
+    <reprompt/>
+   </nomatch>
+  </field>
+
+  <!-- Checks the "State" value against each of the valid values. -->
+  <filled namelist="State">
+  <if cond="State == 'Washington'"> 
+   <goto next="#ForecastW"/>
+  <elseif cond="State == 'California'" />
+   <goto next="#ForecastC"/>
+  <else/>
+   <prompt>
+     That's interesting!
+   </prompt>
+  </if> 
+</filled>
+</form>	
+
+<form id="ForecastC">
+  <field name="ForecastC">
+   <prompt>
+     Please choose from the following options. Do you want to weather forecast currently, shor-term or the long-term.
+     For current weather, say one. For short-term weather, say two. For the long-term weather, say three.
+   </prompt>
+  <!-- Define the grammar. -->
+  <grammar xml:lang="en-us" root = "myrule">
+   <rule id="myrule">
+   <one-of>
+    <item> one </item>
+    <item> two </item>
+    <item> three </item>
+    </one-of>
+   </rule>
+   </grammar>
+   <!-- The user was silent, restart the field. -->
+   <noinput>
+    I did not hear anything. Please try again.
+    <reprompt/>
+   </noinput>
+   <!-- The user said something that was not defined in our grammar. -->
+   <nomatch>
+     I did not recognize that character. Please try again.
+    <reprompt/>
+   </nomatch>
+  </field>
+
+  <!-- Checks the "ForecastC" value against each of the valid values. -->
+  <filled namelist="ForecastC">
+  <if cond="ForecastC == 'one'"> 
+   <prompt>
+     The weather in sunshine San Diego California currently is sunny. 
+     Have a nice day!
+   </prompt>
+  <elseif cond="ForecastC == 'two'" />
+   <prompt>
+     The weather in sunshine San Diego California is mostly sunny.
+     Have a nice day!
+   </prompt>
+  <else/>
+   <prompt>
+     The weather in sunshine San Diego California is always sunny!
+     Have a nice day!
+   </prompt>
+  </if> 
+</filled>
+</form>	
+
+<form id="ForecastW">
+  <field name="ForecastW">
+   <prompt>
+     Please choose from the following options. Do you want to weather forecast currently, shor-term or the long-term.
+     For current weather, say one. For short-term weather, say two. For the long-term weather, say three.
+   </prompt>
+  <!-- Define the grammar. -->
+  <grammar xml:lang="en-us" root = "myrule">
+   <rule id="myrule">
+   <one-of>
+    <item> one </item>
+    <item> two </item>
+    <item> three </item>
+    </one-of>
+   </rule>
+   </grammar>
+   <!-- The user was silent, restart the field. -->
+   <noinput>
+    I did not hear anything. Please try again.
+    <reprompt/>
+   </noinput>
+   <!-- The user said something that was not defined in our grammar. -->
+   <nomatch>
+     I did not recognize that character. Please try again.
+    <reprompt/>
+   </nomatch>
+  </field>
+
+  <!-- Checks the "ForecastW" value against each of the valid values. -->
+  <filled namelist="ForecastW">
+  <if cond="ForecastW == 'one'"> 
+   <prompt>
+     It is currently raining now in Seattle Washington currently.
+     Have a nice day!
+   </prompt>
+  <elseif cond="ForecastW == 'two'" />
+   <prompt>
+     It will be raining in Seattle Washington.
+     Have a nice day!
+   </prompt>
+  <else/>
+   <prompt>
+     It will always be raining in Seattle Washington.
+     Have a nice day!
+   </prompt>
+  </if> 
+</filled>
+</form>	
+
+</vxml>
