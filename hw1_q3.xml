@@ -5,7 +5,7 @@
 <field name="F_1">
    <prompt>
     Please listen to the following options.
-    Please tell us your city, state and follow by one for the current weather, two for short term, and three for the long term.
+    Please tell us your city, state and follow by one, for the current weather, two, for short term, and three, for the long term.
    </prompt>
  
 <grammar xml:lang="en-US" root = "TOPLEVEL">
