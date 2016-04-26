@@ -29,7 +29,9 @@
     </item>
  
     <!-- TOP LEVEL RETURN-->
-    <tag> out.F_1= out.citySlot + out.stateSlot + " is " + out.weatherSlot </tag>
+    <tag> out.F_1 = out.citySlot + out.stateSlot + " is " </tag>   
+    <tag> out.F_2 = " is " + out.weatherSlot </tag>   
+
   </rule>
  
   <rule id="CITY" scope="public">
@@ -46,16 +48,16 @@
    
   <rule id="WEATHER" scope="public">
     <one-of>
-    <item> one <tag> out.weatherSubsSlot=" rainy "; </tag></item>
-    <item> two <tag> out.weatherSubsSlot=" rainy "; </tag></item>
-    <item> three <tag> out.weatherSubsSlot=" rainy "; </tag></item>    
+    <item> one <tag> out.weatherSubsSlot=" mainly rainy "; </tag></item>
+    <item> two <tag> out.weatherSubsSlot=" mainly rainy "; </tag></item>
+    <item> three <tag> out.weatherSubsSlot=" mainly rainy "; </tag></item>    
     </one-of>
   </rule>
 </grammar>
  
   <filled>
     <prompt>
-      The weather is <value expr="F_1" />.
+      The weather in <value expr="F_1" /> <value expr="F_2" />
     </prompt>
   </filled>
 </field>
