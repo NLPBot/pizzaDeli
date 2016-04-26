@@ -5,7 +5,7 @@
 <field name="F_1">
    <prompt>
     Please listen to the following options.
-    Please tell us your city, state and follow by long term, short term or the current weather.
+    Please tell us your city, state and follow by one for long term, three for short term and three for the current weather.
    </prompt>
  
 <grammar xml:lang="en-US" root = "TOPLEVEL">
@@ -46,7 +46,7 @@
    
   <rule id="WEATHER" scope="public">
     <one-of>
-    <item> short term <tag> out.weatherSubsSlot="short term"; </tag></item>
+    <item> three <tag> out.weatherSubsSlot="three"; </tag></item>
     </one-of>
   </rule>
 </grammar>
