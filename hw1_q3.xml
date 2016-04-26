@@ -86,8 +86,8 @@
    
   <rule id="WEATHER" scope="public">
     <one-of>
-    <item> one <tag> out.weatherSubsSlot=" mainly rainy "; </tag></item>
-    <item> two <tag> out.weatherSubsSlot=" mainly rainy "; </tag></item>
+    <item> one <tag> out.weatherSubsSlot=" currently sunny "; </tag></item>
+    <item> two <tag> out.weatherSubsSlot=" sometimes rainy "; </tag></item>
     <item> three <tag> out.weatherSubsSlot=" mainly rainy "; </tag></item>    
     </one-of>
   </rule>
