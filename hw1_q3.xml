@@ -10,8 +10,8 @@
   <field name="Option">
     <prompt>
      Please choose from the following options. 
-     Pick one for in order, and two, 
-     for single utterance
+     Pick one for in order utterance, and two, 
+     for all at once single utterance
     </prompt>
      <!-- Define the grammar. -->
     <grammar xml:lang="en-us" root = "myrule">
